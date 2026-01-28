@@ -72,5 +72,58 @@ void main (){
   print('nilai $e XOR $f OR $g adalah = ${e ^ f || g }');
   // Negasi
   print('nilai NOT $e adalah = ${!e }'); 
-  print('nilai NOT $f adalah = ${!f }');   
+  print('nilai NOT $f adalah = ${!f }\n');   
+
+  /* if bersarang nesrted
+  */
+  var nilaiUjian = 55;
+  var nilaiuts = 50;
+  var nilaiAkhir = (nilaiUjian + nilaiuts) / 2;
+
+  if (nilaiAkhir <= 90 ) {
+    if (nilaiAkhir >= 80) {
+      print('Selamat Anda Lulus dengan nilai ujian akhir $nilaiAkhir');
+    } else if (nilaiAkhir == 75) {
+      print('Selamat Anda Lulus dengan nilai akhir $nilaiAkhir');      
+    }else {
+      print('Maaf Anda Tidak Lulus dengan nilai akhir $nilaiAkhir \n');
+    }
+  }
+  // switch case
+  var hariUjian = 'Senin';
+  switch (hariUjian) {
+    case 'Senin':
+      print('Hari ini adalah Libur');
+      break;
+    case 'Selasa':
+      print('Hari ini adalah Ujian Tengah Semester'); 
+      break;  
+    case 'Rabu':
+      print('Hari ini adalah Ujian Akhir Semester');  
+      break;
+      default:
+      print('Hari ini adalah Hari Biasa');
+  }
+
+  // Tenary Operator
+  var nilai = 73;
+  var hasilNilai = (nilai >= 75) ? 'Lulus' : 'Tidak Lulus';
+  print('Dengan nilai $nilai maka Anda dinyatakan : $hasilNilai\n');
+
+  // var name = "Naila";
+  // var greeting = name ?? "Dika";
+  // print('Hello, $greeting\n');
+
+  //perulangan while
+
+  var j = 1;
+  while (j < 5) {
+    print('while*');
+    j++;
+  }
+
+    while(j < 20){
+    print('* ke- $j');
+    j+=2;
+  }
 }

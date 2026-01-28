@@ -20,7 +20,7 @@ void main (){
   var umurInput = num.parse(stdin.readLineSync()!);
   print(  'Halo, Nama Saya $nama, Umur Saya $umurInput Tahun, Selamat datang di Dart programming language.\n');
 
-  print('========= Mencoba belajar Study Kasus ===================');
+  print('|========= Mencoba belajar Study Kasus Menghitung Persegi ===================| \n');
 
   stdout.write('Masukkan panjang sisi persegi: ');
   var panjangsisi = num.parse(stdin.readLineSync()!);
@@ -35,5 +35,38 @@ void main (){
   var volumeBalok = panjangBalok * luasPersegi;
   print('========= Hasil Volume Balok ===================');
   print('maka hasil dari volume balok adalah : $volumeBalok cm kubik.\n');
+  print('========= Menentukan Hari Ujian ===========================\n');
+  stdout.write('Masukkan Hari :'.toUpperCase());
+  var hariUjian = stdin.readLineSync()!.toUpperCase();
+ switch (hariUjian) {
+    case 'SENIN':
+      print('Hari ini adalah Libur');
+      break;
+    case 'SELASA':
+      print('Hari ini adalah Ujian Tengah Semester'); 
+      break;  
+    case 'RABU':
+      print('Hari ini adalah Ujian Akhir Semester');  
+      break;
+      default:
+      print('Hari ini adalah Hari Biasa\n');
+  }
+  print('|========= Menghitung Nilai Akhir =======================| \n');
+  stdout.write('| Masukkan nilai ujian akhir Anda :');
+  var nilaiUjianAkhir =  stdin.readLineSync();
+  stdout.write('| Masukkan nilai uts Anda :');
+  var nilaiUts = stdin.readLineSync();
+  var nilaiAkhir = (num.parse(nilaiUjianAkhir!) + num.parse(nilaiUts!)) / 2;
+  print("|========================================================|");
+  if (nilaiAkhir < 100 ) {
+    if (nilaiAkhir > 80) {
+      print('| Selamat $nama Lulus dengan nilai ujian akhir : $nilaiAkhir |');
+    } else if (nilaiAkhir >= 75) {
+      print('| Selamat $nama Lulus dengan nilai akhir : $nilaiAkhir |');      
+    }else {
+      print('| Mohon Maaf $nama Tidak Lulus dengan nilai akhir : $nilaiAkhir |');
+    }
+  }
+  print("|========================================================|\n");
 
 }
