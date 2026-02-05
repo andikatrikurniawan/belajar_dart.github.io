@@ -126,4 +126,52 @@ void main (){
     print('* ke- $j');
     j+=2;
   }
+
+  // do while loop
+  var k = 1;
+  do {
+    print('do while - ke ${k*2}' );
+    
+    k++;
+  } while (k <= 10);
+
+  print("===============`=========================\n");
+  // for loop
+  for (var k = 0; k < 10; k++) {
+    print('for loop - ke $k' );
+  }
+
+  print("===============`=========================\n");
+  // for in loop adalah perulangan yang digunakan untuk
+  //mengiterasi item pada koleksi seperti list dan map  
+  var angka = [10,20,30,40,50]; 
+  for (var a in angka) {
+    if (a == angka.first){
+      print('angka pertama adalah $a');
+      continue;
+    } 
+  }
+
+  // penggunaan break dan continue pada loop
+  var angka2 = 1;
+  while (angka2 <= 10) {
+    if (angka2 == 5) {
+      print('berhenti pada angka $angka2');
+      break;
+    } angka2++;
+  } 
+  print("=================Menggunakan break====================\n");
+  for (var count = 1; count <= 10; count++) {
+    print('$count + $count = ${count + count}');
+    if (count == 6){
+      break;
+    }
+  }
+   print("================Menggunakan Continue=====================\n");
+  for (var count = 1; count <= 10; count++) {
+    if (count == 6){
+      continue;
+    }
+    print('$count + $count = ${count + count}');
+  }
 }

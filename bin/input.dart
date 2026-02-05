@@ -69,4 +69,37 @@ void main (){
   }
   print("|========================================================|\n");
 
+  print('========= study kasus kalkulator ===================\n');
+
+  stdout.write('Masukkan angka pertama: ');
+  var angkaPertama = num.parse(stdin.readLineSync()!);
+  stdout.write('Masukkan angka kedua: ');
+  var angkaKedua = num.parse(stdin.readLineSync()!);
+  stdout.write('Pilih operasi (+, -, *, /): ');
+  var operasi = stdin.readLineSync();
+  num hasil;
+  switch (operasi) {
+    case '+':
+      hasil = angkaPertama + angkaKedua;
+      print('Hasil: $angkaPertama + $angkaKedua = $hasil\n');
+      break;
+    case '-':
+      hasil = angkaPertama - angkaKedua;
+      print('Hasil: $angkaPertama - $angkaKedua = $hasil\n');
+      break;
+    case '*':
+      hasil = angkaPertama * angkaKedua;
+      print('Hasil: $angkaPertama * $angkaKedua = $hasil\n');
+      break;
+    case '/':
+      if (angkaKedua != 0) {
+        hasil = angkaPertama / angkaKedua;
+        print('Hasil: $angkaPertama / $angkaKedua = $hasil\n');
+      } else {
+        print('Error: Pembagian dengan nol tidak diperbolehkan.\n');
+      }
+      break;
+    default:
+      print('Operasi tidak valid. Silakan pilih +, -, *, atau /.\n');
+  }
 }
