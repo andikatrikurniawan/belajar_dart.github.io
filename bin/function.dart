@@ -80,10 +80,12 @@ void hello(String nama){
   }
 
   //Exception Handling pada Function
-  void divide(int a, int b){
+  void divide(){
     print("Case 1: Menggunakan on IntegerDivisionByZeroException");
     try{
-      int result = 12~/ 0;
+      var a = 12;
+      var b = 0;
+      int result = a ~/ b;
       print('Hasil pembagian $a ~/ $b = $result');
     } on IntegerDivisionByZeroException {
       print('Error: Pembagian dengan nol tidak diperbolehkan.');
@@ -91,12 +93,56 @@ void hello(String nama){
 
     print("\nCase 2: Menggunakan catch Exception");  
     try{
-      int result = 12~/ 0;
+      var a = 12;
+      var b = 0;
+      int result = a ~/ b;
       print('Hasil pembagian $a ~/ $b = $result');
     }catch (e){
       print('Error: $e');
     }
+
+    print("\nCase 3: Menggunakan StackTrace");  
+    try{
+     var a = 12;
+      var b = 0;
+      int result = a ~/ b;
+      print('Hasil pembagian $a ~/ $b = $result');
+    }catch (e, s){
+      print("stackTrace: $s");
+    }
+
+    print("\nCase 4 : Menggunakan Finally");
+    try{
+      var a = 12;
+      var b = 0;
+      int result = a ~/ b;
+      print('Hasil pembagian $a ~/ $b = $result');
+    }catch (e){
+      print(e);
+    }finally{
+      print('Eksekusi blok finally selesai');
+    }
+    print("\nCase 5 : Membuat Custom Exception");
+    try{
+      depositMoney( 100);
+    }catch(e){
+      if(e is Custom){
+        print(e.errorMessage());
+      }
+    }finally{
+      print("Telah Selesai");
+    }
   }
+  class Custom implements Exception{
+      String errorMessage(){
+        return 'Custom Exception: Jumlah Deposit Tidak Boleh Negatif.';
+      }
+    }
+    void depositMoney(int amount){
+      if(amount < 0){
+        throw Custom();
+      }
+    }
 
 void main (){
   hello('Andika');
@@ -116,5 +162,5 @@ void main (){
     // Opsional posisition parameter, Regiona("Jakarta", "Bandung");
     // Opsional named parameter , region(10, value3: 20, value2: 30); 
     region(10, value3: 20, value2: 30);
-    divide(10, 0);  
+    divide();
 }
