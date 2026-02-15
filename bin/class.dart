@@ -97,6 +97,79 @@ class FirstClass{
     //Redirecting Named Constructor
     Parameter.newConstruktor() : this.redirect("Indonesia");
   }
+
+  //initializer list
+  class Customer{
+    String firstName = " ";
+    String lastName = " ";
+    String midName = " ";
+    String fullName = " ";
+
+    Customer(this.fullName, String calling) 
+    : firstName = fullName.split(" ") [0],
+      midName = fullName.split(" ") [1],
+      lastName = fullName.split(" ")[2]{
+        print("Create New Name");
+        print("Ini Nama FirstName : $firstName");
+        print("Ini Nama MidName : $midName");
+        print("Ini Nama lastName : $lastName");
+        print("Ini Nama Panggilan : $calling");
+      } 
+  }
+  // Constant Constructor
+  class ConstFinal {
+    final int i;
+    final int k;
+
+    const ConstFinal (this.i, this.k);
+  }
+
+  //Factory Constructor, Cocok untuk parsing JSON
+  class Database{
+  static final Database result = Database.data();
+  static final Database database = Database.newData();
+
+    Database.data(){
+      print("Create New Database Connection");
+    }
+    Database.newData(){
+      print("Database Behasil Connect");
+    }
+  factory Database.get(){
+    return result;
+  }
+  factory Database.rest(String name){
+    print("Factory Sudah Terpanggil oleh : $name");
+    var uts = 80;
+    var uas = 80;
+    var absen = 26;
+    var nilai = (absen + uts + uas) / 2;
+    if (nilai > 80) {
+      print("Ujian $name Lulus Anda Mendapatkan Nilai : $nilai");
+    }else{
+      print("Maaf $name Ujian Anda Tidak Lulus Karena Nilai Anda : $nilai");
+    }
+    print("");
+    return database;
+  }
+  }
+
+  //Menggunakan Case Cade Notation
+  class User{
+    String? username;
+    String? name;
+    String? email;
+
+    @override
+    String toString(){
+      return 'Username : $username, Name : $name, Email : $email';
+    }
+  }
+ // case cade notation nullable
+  User? createUser(){
+    return null;
+    }
+
 void main(){
   FirstClass first1 = FirstClass();
   print(first1.name.toUpperCase());
@@ -147,5 +220,28 @@ void main(){
   print(rd1.tahun); print("");
   var rd2 = Parameter.newConstruktor();
   print(rd2.merek);
-  print(rd2.tahun);     
+  print(rd2.tahun); print("");
+
+  Customer("Andika Tri Kurniawan","Opee\n");
+
+  var point1 = const ConstFinal(10, 10);
+  var point2 = const ConstFinal(15, 10);
+  var result = point1.i < point2.k;
+  print("Perhitungan Dari Constant Constructor : $result\n");
+
+  Database.get();print("");
+  Database.rest("Joko"); print(" ");
+  print(
+  User()
+    ..username = "Andika"
+    ..name = "Dika"
+    ..email = "dika@Example.com"
+  );
+  //case cade null
+  print(
+  createUser()
+    ?..username = "Andika"
+    ..name = "Dika"
+    ..email = "dika@Example.com"
+  );
 }
