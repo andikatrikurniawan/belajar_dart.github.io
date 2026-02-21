@@ -1,5 +1,6 @@
 import 'data/category.dart';
 import 'data/interface.dart';
+import 'data/repository.dart';
 void main() {
   var category = Category("Buku", 10);
   print("Nama Barang : ${category.barang}");
@@ -16,7 +17,7 @@ void main() {
   // atau file yang berbeda tidak bisa mengakses private access modifier
   // access._phoneNumber = "089320010";
 
-  //Membuat getter dan setter
+  //Main getter dan setter
   var prd = Product();
   prd.setPrice = 10000;
   prd.setStock = 50;
@@ -26,5 +27,35 @@ void main() {
   var interface = Avanza();
   interface.drive();
   print("Status Mobil : ${interface.stop()}");
-  
+  interface.jenis();
+  print(interface.merek());
+  print("");
+  // main mixin
+  var media = MusicPlayer();
+  media.name = "Spotify";
+  media.play();
+  media.speed = 128;
+  media.stop();
+  media.playMusic();
+  print("");
+  //main toString
+  var person = Person(1,"Andika");
+  person.age = 35;
+  print(person);
+  // main equals operator
+  var person1 = Person(1, "Kurniawan");
+  var person2 = Person(1, "Kurniawan");
+  print("Apakah person1 sama dengan person2? ${person1 == person2}");
+  print(person1 == person2);
+  //main hasCode Getter
+  print("Hash Code Person 1 :${person1.hashCode}");
+  print("Hash Code Person 2 :${person2.hashCode}");
+ print("");
+ // main NoSuchMethod
+ var repo = Repository("Users");
+ repo.id("1");
+ repo.name("Komputer");
+ repo.location("Bandung");
+ repo.age(25);
+
 }
