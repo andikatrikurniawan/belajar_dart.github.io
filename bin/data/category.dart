@@ -67,3 +67,44 @@ class AccessModifier{
 
   set setStock(int value) => stock = value ; 
  } 
+
+// membuat Enum tipe data yang memiliki nilai tetap
+ enum CinemaType {
+  reguler,
+  premium,
+  vip
+ }
+
+ enum Gender{
+  men,
+  women,
+ }
+
+ class Customer{
+  String? name;
+  Gender gen;
+  CinemaType type;
+
+
+  Customer(this.name, this.gen,this.type);
+ }
+ // membuat class exception
+ class ValidationException implements Exception{
+  final String message;
+
+  ValidationException(this.message);
+ }
+
+ // membuat Exception/ mentrigger Exception 
+ class Validation{
+  static void  validate(String username, String password){
+   if (username == ""){
+      throw ValidationException("Username is blank");
+    }else if (password == ""){
+      throw ValidationException("Password is Black");
+      //multiple exception
+    }else if (username != "Admin" || password != "123"){
+      throw ValidationException("Login Failed");
+    }
+ }
+}

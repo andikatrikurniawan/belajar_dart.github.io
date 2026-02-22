@@ -57,5 +57,31 @@ void main() {
  repo.name("Komputer");
  repo.location("Bandung");
  repo.age(25);
-
+ print("");
+ // main callable class
+ var callable = Sum(10, 10);
+ print("Hasil Penjumlahan callable clas : ${callable()}");
+  // main typedef
+  var kali = Perkalian(5,5);
+  print(kali());
+  print("");
+  //main enum 
+  var customer = Customer("Andika",Gender.men, CinemaType.vip);
+ print("Nama Customer : ${customer.name}");
+ print("Jenis Kelamin : ${customer.gen}");
+ print("Tipe Cinema : ${customer.type}");
+ print(CinemaType.values);
+ print(Gender.values);
+ print("");
+ // main exceptions
+try {
+  Validation.validate("Admin", "123");
+ } on ValidationException catch (e){
+  print("Validation Failed : ${e.message}");
+ } on Exception catch (e){
+  print("Validation : ${e.toString()}");
+ } finally{
+  print ("Validation Process Completed");
+ }
+ print("Lanjut");
 }

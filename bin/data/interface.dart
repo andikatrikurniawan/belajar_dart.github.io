@@ -8,7 +8,7 @@
  untuk membuat class yang memiliki implementasi method, interface mendeklarasikan ulang
 */
 
-  abstract class Car {
+abstract class Car {
   String name = " ";
 
   void drive(){
@@ -132,4 +132,53 @@
   // atau bisa menggunakan expression body
   @override
   int get hashCode => id.hashCode ^ name.hashCode;
+  }
+  // membuat callable class adalah class yang bisa dipanggil
+  //seperti function. menggunakan method call()
+  class Sum{
+    num? first;
+    num? second;
+
+    Sum(this.first, this.second);
+
+    num call(){
+      return first! + second!;
+    }
+  }
+  // membuat typedef adalah alias untuk tipe data yang sudah ada 
+  typedef Perkalian = Sum;
+  typedef Pembagian = Sum;
+ 
+  // typedef juga bisa digunakan untuk membuat function type alias
+  typedef Filter = String Function(String);
+
+  void say(String name, Filter saring){
+    print("Hello ${saring(name)}");
+  }
+  /*
+  static member adalah member yang dimiliki oleh class itu sendiri 
+  dan tidak bisa diakses melalui object
+  */
+
+  class Application{
+    // bisa nya ditambahkan kata kunci final karena static member tidak bisa diubah nilainya
+    static final author = 10;
+    static final String version = "1.0.3.14";
+  } 
+  // Static Methoad 
+  class Math {
+    static final num pi = 3.14;
+    static num add(num a, num b) => a+b / pi;
+  }
+  void main(){
+    //main typedef function type alias
+    say("Andi", (value)=> value.toUpperCase());
+    print("");
+    // main static member
+    // Application.author = "Belajar Dart Lanjutan";
+    // Application.version = "2.20.30";
+    print("Author : ${Application.author}");
+    print("Version : ${Application.version}");
+    // main static method
+    print("Hasil Penjumlahan Static Method :${Math.add(100,200)}");
   }
