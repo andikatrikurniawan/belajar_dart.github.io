@@ -108,3 +108,30 @@ class AccessModifier{
     }
  }
 }
+/*
+  Standard Annotation/ Meta data
+    @Deprecated : Menandai bahwa kode tersebut sudah tidak direkomendasikan
+    digunakan, digunakan constan constractor
+    @override : Menandai bahwa field atau method tersebut merupakan 
+    overriding dari parent nya
+  */
+
+  class Sample {
+    @override
+    String toString(){
+      return "Sample";
+    }
+    @Deprecated("Don't Use it Annymore")
+    void doNotCallMe(){}
+  }
+  // membuat annotation sendiri
+  class Todo {
+    final String todo;
+
+   const Todo(this.todo);
+  }
+
+  class Application{
+    @Todo("Field Is not releasee")
+    String? namae;
+  }

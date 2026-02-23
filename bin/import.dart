@@ -74,12 +74,15 @@ void main() {
  print(Gender.values);
  print("");
  // main exceptions
+ // menambahkan stackTrace proses debuggingnya
 try {
-  Validation.validate("Admin", "123");
- } on ValidationException catch (e){
+  Validation.validate("", "");
+ } on ValidationException catch (e, stackTrace){
   print("Validation Failed : ${e.message}");
+  print("Stack Trace : ${stackTrace.toString()}");
  } on Exception catch (e){
   print("Validation : ${e.toString()}");
+  //Finally tetap menampilkan output walaupun code yang diatas salah
  } finally{
   print ("Validation Process Completed");
  }
